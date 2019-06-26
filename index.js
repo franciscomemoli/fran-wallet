@@ -3,9 +3,11 @@ const hdkey = require('hdkey')
 const ethUtil = require('ethereumjs-util')
 const ethTx = require('ethereumjs-tx')
 
-const strength = 256;
+const strength = 256/2;
+
 const password = "";
-const mnemonic = bip39.generateMnemonic(strength); //generates string
+const mnemonic = "";
+//const mnemonic = bip39.generateMnemonic(strength); //generates string
 //const mnemonic = "gym puppy thing dirt curtain pledge next kangaroo find food grab cave address century dial little hurt breeze such orient pause bounce wolf uncle";
 
 const seed = bip39.mnemonicToSeed(mnemonic, password); //creates seed buffer
@@ -21,7 +23,7 @@ console.log(root._publicKey)
 console.log(root.toJSON())
 
 console.log("---------------------------------------------------------------------------------------------")
-const addrNode = root.derive("m/44'/60'/0'/0"); //line 1
+const addrNode = root.derive("m/44'/61'/0'/0/0"); //line 1 el completo es m/44'/61'/0'/0/0 (index 0 ejemplo)
 console.log("--.",addrNode.toJSON())
 
 const pubKey = ethUtil.privateToPublic(addrNode._privateKey);
